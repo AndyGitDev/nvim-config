@@ -8,7 +8,7 @@ return {
     'nvimtools/none-ls-extras.nvim',
     'jayp0521/mason-null-ls.nvim', -- ensure dependencies are installed
     'lewis6991/gitsigns.nvim',
-    'tpope/vim-fugitive',
+    'tpope/vim-commentary',
   },
   config = function()
     local null_ls = require 'null-ls'
@@ -18,10 +18,10 @@ return {
     require('mason-null-ls').setup {
       ensure_installed = {
         'prettier', -- ts/js formatter
-        'stylua', -- lua formatter
+        'stylua',   -- lua formatter
         'eslint_d', -- ts/js linter
         'shfmt',
-        'ruff', -- python formatter
+        'ruff',     -- python formatter
       },
       -- auto-install configured formatters & linters (with null-ls)
       automatic_installation = true,
