@@ -7,7 +7,6 @@ return {
   dependencies = {
     'nvimtools/none-ls-extras.nvim',
     'jayp0521/mason-null-ls.nvim', -- ensure dependencies are installed
-    'lewis6991/gitsigns.nvim',
     'tpope/vim-commentary',
   },
   config = function()
@@ -27,10 +26,6 @@ return {
       automatic_installation = true,
     }
 
-    require('gitsigns').setup()
-    vim.keymap.set('n', '<leader>gp', ':Gitsigns preview_hunk<CR>', {})
-    vim.keymap.set('n', '<leader>gt', ':Gitsigns toggle_current_line_blame<CR>', {})
-
     local sources = {
       formatting.prettier.with { filetypes = { 'html', 'json', 'yaml', 'markdown' } },
       formatting.stylua,
@@ -46,7 +41,7 @@ return {
       sources = sources,
       -- you can reuse a shared lspconfig on_attach callback here
       on_attach = function(client, bufnr)
-        if client.supports_method 'textDocument/formatting' then
+        if client.supports_method 'textDocument/formatting' and not string.match(vim.api.nvim_buf_get_name(bufnr), 'test_') then
           vim.api.nvim_clear_autocmds { group = augroup, buffer = bufnr }
           vim.api.nvim_create_autocmd('BufWritePre', {
             group = augroup,
