@@ -32,4 +32,8 @@ return {
       },
     }
   end,
+  keys = {
+    { '<leader>nl', '<cmd>NoiceLast<cr>' },
+    { '<leader>nh', '<cmd>NoiceHistory<cr>' },
+  },
 }
