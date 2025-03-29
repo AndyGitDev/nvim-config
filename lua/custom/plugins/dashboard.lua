@@ -17,6 +17,7 @@ return {
       }
       dashboard.section.buttons.val = {
         dashboard.button('e', '  new file', ':ene <bar> startinsert <cr>'),
+        dashboard.button('r', '↻  restore session', ':SessionRestore <cr>'),
         dashboard.button('q', '󰅚  quit nvim', ':qa<cr>'),
       }
       local handle = io.popen 'fortune'
