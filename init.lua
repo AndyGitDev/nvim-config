@@ -85,15 +85,21 @@ P.S. You can delete this when you're done too. It's your config now! :)
 --]]
 
 -- Perform neovide settings
-if vim.g.neovide then
-  -- vim.opt.guifont = 'MesloLGS Nerd Font, Cascadia Code:h8'
-  vim.g.neovide_scale_factor = 0.5
-  vim.g.neovide_window_blurred = true
-  vim.g.neovide_transparency = 0.8
-  vim.g.neovide_floating_blur_amount_x = 2.0
-  vim.g.neovide_floating_blur_amount_y = 2.0
-end
+local augroup = vim.api.nvim_create_augroup('SetGUISettings', { clear = true })
 
+vim.api.nvim_create_autocmd('UIEnter', {
+  group = augroup,
+  callback = function()
+    if vim.g.neovide then
+      -- vim.opt.guifont = 'MesloLGS Nerd Font, Cascadia Code:h8'
+      vim.g.neovide_scale_factor = 0.5
+      vim.g.neovide_window_blurred = true
+      vim.g.neovide_transparency = 0.8
+      vim.g.neovide_floating_blur_amount_x = 2.0
+      vim.g.neovide_floating_blur_amount_y = 2.0
+    end
+  end,
+})
 -- Set terminal to Powershell if OS is windows
 if vim.loop.os_uname().sysname == 'Windows_NT' then
   vim.o.shell = 'powershell'
