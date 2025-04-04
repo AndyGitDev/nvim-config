@@ -1070,5 +1070,14 @@ require('lazy').setup({
 
 -- NOTE: Custom plugins
 
+if vim.g.neovide then
+  -- vim.opt.guifont = 'MesloLGS Nerd Font, Cascadia Code:h8'
+  vim.g.neovide_scale_factor = 0.5
+  vim.g.neovide_window_blurred = true
+  vim.g.neovide_transparency = 0.8
+  vim.g.neovide_floating_blur_amount_x = 2.0
+  vim.g.neovide_floating_blur_amount_y = 2.0
+end
+
 require 'notepad'
 require 'terminal'
