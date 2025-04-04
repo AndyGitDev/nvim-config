@@ -12,7 +12,7 @@ local function float_win_config()
     height = height,
     col = utils.center_in(vim.o.columns, width),
     row = utils.center_in(vim.o.lines, height),
-    border = 'single',
+    border = 'rounded',
   }
 end
 
