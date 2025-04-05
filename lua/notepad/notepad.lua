@@ -3,7 +3,7 @@ local utils = require 'utils'
 local M = {}
 
 local function float_win_config()
-  local width = math.min(math.floor(vim.o.columns * 0.8), 100)
+  local width = math.floor(vim.o.columns * 0.8)
   local height = math.floor(vim.o.lines * 0.8)
 
   return {
